@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: springJPA13Apr24
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:appdb
+    username: sa
+    password:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+
+    show-sql: true
+
