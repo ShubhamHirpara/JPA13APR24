@@ -6,6 +6,9 @@ import co.pragra.learning.springjpa13apr24.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/user")
 public class UserAPI {
@@ -17,5 +20,26 @@ public class UserAPI {
     public String addUser(@RequestBody ApplicationUser user){
         userService.addUser(user);
         return "Data has been persisited in database successfully";
+    }
+
+    @GetMapping("/getById")
+    public Optional<ApplicationUser> getUserById(@RequestParam Integer id){
+        return userService.getUserById(id);
+    }
+
+    @GetMapping("/getAll")
+    public List<ApplicationUser> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteUserById(@RequestParam Integer id){
+        userService.deleteById(id);
+        return "User with id: " + id + " have been deleted successfully.";
+    }
+
+    @PutMapping("/update")
+    public Optional<ApplicationUser> updateUser(@RequestBody ApplicationUser user){
+        return userService.updateUser(user);
     }
 }

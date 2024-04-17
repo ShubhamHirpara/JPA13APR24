@@ -6,13 +6,12 @@ spring:
       enabled: true
 
   datasource:
-    url: jdbc:h2:mem:appdb
+    url: jdbc:h2:./appdb
     username: sa
     password:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create
-
+      ddl-auto: validate
     show-sql: true
 

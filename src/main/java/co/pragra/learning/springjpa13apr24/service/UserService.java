@@ -5,14 +5,40 @@ import co.pragra.learning.springjpa13apr24.repositories.ApplicationUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
     ApplicationUserRepo applicationUserRepo;
 
-    public boolean addUser(ApplicationUser user){
-        applicationUserRepo.save(user);
-        return true;
+    public ApplicationUser addUser(ApplicationUser user){
+        return applicationUserRepo.save(user);
     }
+
+    public Optional<ApplicationUser> updateUser(ApplicationUser user){
+        Optional<ApplicationUser> updatedUser = Optional.empty();
+        Optional<ApplicationUser> optionalApplicationUser = getUserById(user.getUserId());
+        if(optionalApplicationUser.isPresent()){
+            updatedUser = Optional.ofNullable(addUser(user));
+            return updatedUser;
+        }
+        return updatedUser;
+    }
+
+    public Optional<ApplicationUser> getUserById(Integer id){
+        return applicationUserRepo.findById(id);
+    }
+
+    public List<ApplicationUser> getAllUsers(){
+        return applicationUserRepo.findAll();
+    }
+
+    public void deleteById(Integer id){
+        applicationUserRepo.deleteById(id);
+    }
+
+
 
 }
