@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +20,10 @@ public class ApplicationUser {
     private String firstName;
     private String lastName;
     private String email;
+
+    @OneToOne
+    private Account account;
+    @OneToMany
+    private List<Review> reviews;
+
 }

@@ -1,7 +1,10 @@
 package co.pragra.learning.springjpa13apr24.service;
 
 import co.pragra.learning.springjpa13apr24.entities.ApplicationUser;
+import co.pragra.learning.springjpa13apr24.repositories.AccountRepo;
 import co.pragra.learning.springjpa13apr24.repositories.ApplicationUserRepo;
+import co.pragra.learning.springjpa13apr24.repositories.ReviewRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +12,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    ApplicationUserRepo applicationUserRepo;
+    //@Autowired
+    final ApplicationUserRepo applicationUserRepo;
+    final AccountRepo accountRepo;
+    final ReviewRepo reviewRepo;
 
     public ApplicationUser addUser(ApplicationUser user){
+        accountRepo.save(user.getAccount());
+        reviewRepo.saveAll(user.getReviews());
         return applicationUserRepo.save(user);
     }
 
