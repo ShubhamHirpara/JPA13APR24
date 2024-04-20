@@ -42,4 +42,19 @@ public class UserAPI {
     public Optional<ApplicationUser> updateUser(@RequestBody ApplicationUser user){
         return userService.updateUser(user);
     }
+    @RequestMapping(value = "/firstname/{fn}",method = RequestMethod.GET)
+    public List<ApplicationUser> getByfName(@PathVariable("fn") String firstName){
+        return userService.getByFName(firstName);
+    }
+
+    @RequestMapping(value = "/lastname/{fn}",method = RequestMethod.GET)
+    public List<String> getLnameByFName(@PathVariable("fn") String firstName){
+        return userService.getLnamesByfName(firstName);
+    }
+
+    @RequestMapping(value = "/first/{ln}",method = RequestMethod.GET)
+    public List<String> getFnameByLName(@PathVariable("ln") String lastName){
+        return userService.getfNameBylName(lastName);
+    }
+
 }

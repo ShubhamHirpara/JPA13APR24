@@ -25,3 +25,9 @@ Hibernate: create table user (user_id integer not null, email varchar(255), firs
 last_name varchar(255), primary key (user_id))
 
 Repository / DAO
+
+
+Exercise:
+Need to write abstract method in Repo and use JPA to create sql from it: make atlist 2 arguments/ 2 where closes
+use @query annotation and write the JPQL query to generate fetch some data: atlist 2-3 parameters
+use @query annotation and write Native queries: to generate fetch some data: atlist 2-3 parameters

@@ -39,6 +39,21 @@ public class UserService {
         applicationUserRepo.deleteById(id);
     }
 
+    public List<ApplicationUser> getByFName(String firstName){
+        return applicationUserRepo.byFName(firstName);
+        //return applicationUserRepo.findAllByFirstName(firstName);
+    }
+
+    public List<String> getLnamesByfName(String firstName){
+        return applicationUserRepo.lstNmfrmFn(firstName);
+    }
+
+    public List<String> getfNameBylName(String lastName){
+        return applicationUserRepo.fstNmFromLn(lastName);
+    }
+
+
+
 
 
 }
