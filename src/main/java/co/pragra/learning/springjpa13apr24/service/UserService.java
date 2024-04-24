@@ -1,6 +1,7 @@
 package co.pragra.learning.springjpa13apr24.service;
 
 import co.pragra.learning.springjpa13apr24.entities.ApplicationUser;
+import co.pragra.learning.springjpa13apr24.entities.Review;
 import co.pragra.learning.springjpa13apr24.repositories.AccountRepo;
 import co.pragra.learning.springjpa13apr24.repositories.ApplicationUserRepo;
 import co.pragra.learning.springjpa13apr24.repositories.ReviewRepo;
@@ -36,6 +37,8 @@ public class UserService {
     }
 
     public Optional<ApplicationUser> getUserById(Integer id){
+//        ApplicationUser applicationUser = applicationUserRepo.findById(id).get();
+//        List<Review> reviews = applicationUser.getReviews();
         return applicationUserRepo.findById(id);
     }
 

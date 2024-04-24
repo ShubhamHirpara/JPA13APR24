@@ -31,3 +31,15 @@ Exercise:
 Need to write abstract method in Repo and use JPA to create sql from it: make atlist 2 arguments/ 2 where closes
 use @query annotation and write the JPQL query to generate fetch some data: atlist 2-3 parameters
 use @query annotation and write Native queries: to generate fetch some data: atlist 2-3 parameters
+
+Exercise:
+get the hands on for OneToOne mapping/ OneToMany mapping
+use @query annotation to make more complex queries-> include multiple tables: use Joins 
+same query write in JPQL and Native query
+Take Home: @ManyToOne and @ManyToMany mapping
+
+Exercise:
+FetchType: LAZY
+FetchType: EAGER
+CASCADE: ALL,PERSIST,DETACH,REMOVE
+ORPHAN REMOVAL: TRUE/FALSE

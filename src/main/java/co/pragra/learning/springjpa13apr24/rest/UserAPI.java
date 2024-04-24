@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
@@ -27,9 +28,16 @@ public class UserAPI {
         return userService.getUserById(id);
     }
 
+//    @GetMapping("/getAll")
+//    public List<ApplicationUser> getAllUsers(){
+//        return userService.getAllUsers();
+//    }
+
     @GetMapping("/getAll")
-    public List<ApplicationUser> getAllUsers(){
-        return userService.getAllUsers();
+    public List<String> getAllUsers(){
+        List<ApplicationUser> allUsers = userService.getAllUsers();
+        List<String> reviewDescs = allUsers.stream().flatMap(u -> u.getReviews().stream().map(r -> r.getReviewDesc())).collect(Collectors.toList());
+        return reviewDescs;
     }
 
     @DeleteMapping("/delete")

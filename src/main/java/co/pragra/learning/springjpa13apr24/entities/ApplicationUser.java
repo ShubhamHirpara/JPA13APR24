@@ -23,7 +23,7 @@ public class ApplicationUser {
 
     @OneToOne
     private Account account;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.DETACH)
     private List<Review> reviews;
 
 }
