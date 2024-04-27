@@ -43,3 +43,7 @@ FetchType: LAZY
 FetchType: EAGER
 CASCADE: ALL,PERSIST,DETACH,REMOVE
 ORPHAN REMOVAL: TRUE/FALSE
+
+RestTemplate
+WebClient
+FeignClient

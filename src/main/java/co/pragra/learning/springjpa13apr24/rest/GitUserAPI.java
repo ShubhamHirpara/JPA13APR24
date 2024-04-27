@@ -17,6 +17,6 @@ public class GitUserAPI {
 
     @GetMapping("/{username}")
     public GitUserDTO getUserbyUsername(@PathVariable String username){
-        return gitHubService.getGitHubUser(username);
+        return gitHubService.getGitUserwithFeign(username);
     }
 }
