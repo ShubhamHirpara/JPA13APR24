@@ -47,3 +47,6 @@ ORPHAN REMOVAL: TRUE/FALSE
 RestTemplate
 WebClient
 FeignClient
+For all these three: > consume GIT Users
+
+2) ApplicationB :-> B-> consume appA -> fetch ApplicationUser By Id
