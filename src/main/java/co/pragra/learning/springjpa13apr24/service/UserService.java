@@ -1,5 +1,6 @@
 package co.pragra.learning.springjpa13apr24.service;
 
+import co.pragra.learning.springjpa13apr24.dto.UserDTO;
 import co.pragra.learning.springjpa13apr24.entities.ApplicationUser;
 import co.pragra.learning.springjpa13apr24.entities.Review;
 import co.pragra.learning.springjpa13apr24.repositories.AccountRepo;
@@ -28,7 +29,7 @@ public class UserService {
 
     public Optional<ApplicationUser> updateUser(ApplicationUser user){
         Optional<ApplicationUser> updatedUser = Optional.empty();
-        Optional<ApplicationUser> optionalApplicationUser = getUserById(user.getUserId());
+        Optional<ApplicationUser> optionalApplicationUser = applicationUserRepo.findById(user.getUserId());;
         if(optionalApplicationUser.isPresent()){
             updatedUser = Optional.ofNullable(addUser(user));
             return updatedUser;
@@ -36,10 +37,15 @@ public class UserService {
         return updatedUser;
     }
 
-    public Optional<ApplicationUser> getUserById(Integer id){
+    public UserDTO getUserById(Integer id){
 //        ApplicationUser applicationUser = applicationUserRepo.findById(id).get();
 //        List<Review> reviews = applicationUser.getReviews();
-        return applicationUserRepo.findById(id);
+        UserDTO userDTO = UserDTO.builder().build();
+        Optional<ApplicationUser> applicationUser = applicationUserRepo.findById(id);
+        if(applicationUser.isPresent()){
+            userDTO = converApplicationUserToUserDTO(applicationUser.get());
+        }
+        return userDTO;
     }
 
     public List<ApplicationUser> getAllUsers(){
@@ -61,6 +67,18 @@ public class UserService {
 
     public List<String> getfNameBylName(String lastName){
         return applicationUserRepo.fstNmFromLn(lastName);
+    }
+
+    private UserDTO converApplicationUserToUserDTO(ApplicationUser user){
+        UserDTO dto = UserDTO.builder()
+                .fName(user.getFirstName())
+                .lName(user.getLastName())
+                .id(user.getUserId())
+                .accountInfo(user.getAccount())
+                .reviews(user.getReviews())
+                .emailAddress(user.getEmail())
+                .build();
+        return dto;
     }
 
 

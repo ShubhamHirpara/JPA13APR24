@@ -1,5 +1,6 @@
 package co.pragra.learning.springjpa13apr24.rest;
 
+import co.pragra.learning.springjpa13apr24.dto.UserDTO;
 import co.pragra.learning.springjpa13apr24.entities.ApplicationUser;
 import co.pragra.learning.springjpa13apr24.repositories.ApplicationUserRepo;
 import co.pragra.learning.springjpa13apr24.service.UserService;
@@ -24,7 +25,7 @@ public class UserAPI {
     }
 
     @GetMapping("/getById")
-    public Optional<ApplicationUser> getUserById(@RequestParam Integer id){
+    public UserDTO getUserById(@RequestParam Integer id){
         return userService.getUserById(id);
     }
 

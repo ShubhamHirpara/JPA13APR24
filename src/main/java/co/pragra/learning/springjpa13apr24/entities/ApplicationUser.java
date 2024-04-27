@@ -21,7 +21,7 @@ public class ApplicationUser {
     private String lastName;
     private String email;
 
-    @OneToOne
+    @OneToOne (fetch = FetchType.LAZY)
     private Account account;
     @OneToMany(cascade = CascadeType.DETACH)
     private List<Review> reviews;
