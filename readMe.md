@@ -50,3 +50,13 @@ FeignClient
 For all these three: > consume GIT Users
 
 2) ApplicationB :-> B-> consume appA -> fetch ApplicationUser By Id
+
+JUnit 4.0 / 5.0 
+TestNG
+Gradle tests
+Maven tests
+Mockito
+
+Development strategy:
+TDD - Test Driven Development (95) / 
+BDD - Behaviour Driven Development (5) (Cucumber: )
