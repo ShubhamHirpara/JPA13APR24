@@ -57,6 +57,13 @@ Gradle tests
 Maven tests
 Mockito
 
+
+
 Development strategy:
 TDD - Test Driven Development (95) / 
 BDD - Behaviour Driven Development (5) (Cucumber: )
+
+
+Microservices:
+API Gateway : Route request, Load Balancing
+Discovery server, 

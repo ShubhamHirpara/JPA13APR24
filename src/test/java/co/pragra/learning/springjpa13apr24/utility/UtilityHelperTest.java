@@ -1,19 +1,33 @@
 package co.pragra.learning.springjpa13apr24.utility;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class UtilityHelperTest {
 
-    UtilityHelper utilityHelper = new UtilityHelper();
+    UtilityHelper utilityHelper = null;
+
+    // before methods
+
+    @Before
+    public void prepare(){
+        utilityHelper = new UtilityHelper();
+    }
+
     @Test
     public void calculateTest(){
-        Assertions.assertEquals(10,utilityHelper.calculate(2,3));
+        Assertions.assertEquals(2,utilityHelper.calculate(4,2));
 
     }
 
     @Test
     public void checkEvenTest(){
         Assertions.assertTrue(utilityHelper.checkEven(2));
+    }
+    @Test(expected = Exception.class)
+    public void calculateTestException(){
+        utilityHelper.calculate(2,0);
     }
 }
