@@ -4,10 +4,13 @@ import co.pragra.learning.springjpa13apr24.dto.UserDTO;
 import co.pragra.learning.springjpa13apr24.entities.ApplicationUser;
 import co.pragra.learning.springjpa13apr24.repositories.ApplicationUserRepo;
 import co.pragra.learning.springjpa13apr24.service.UserService;
+import org.apache.el.lang.ELArithmetic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -25,9 +28,18 @@ public class UserAPI {
     }
 
     @GetMapping("/getById")
-    public UserDTO getUserById(@RequestParam Integer id){
-        return userService.getUserById(id);
+    public ResponseEntity<UserDTO> getUserById(@RequestParam Integer id){
+        UserDTO userById = userService.getUserById(id);
+        userById = null;
+        if(Objects.nonNull(userById)){
+            return ResponseEntity.status(250).header("status","1305")
+                    .header("Content-Type","APPLICATION/JSON")
+                    .body(userById);
+        }
+        return ResponseEntity.status(503).header("Error","Data not Found").build();
+        //return userService.getUserById(id); // writing in Http response body
     }
+    //1108,1209
 
 //    @GetMapping("/getAll")
 //    public List<ApplicationUser> getAllUsers(){

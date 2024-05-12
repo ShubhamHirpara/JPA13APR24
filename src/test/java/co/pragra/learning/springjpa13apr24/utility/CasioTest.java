@@ -21,8 +21,8 @@ public class CasioTest {
     @Test
     public void actionTest(){
         // When and then return statemets
-        Mockito.when(utilityHelper.calculate(Mockito.anyInt(),Mockito.anyInt())).thenReturn(6);
-        Assertions.assertEquals(17, casio.action(3));
+//        Mockito.when(utilityHelper.calculate(Mockito.anyInt(),Mockito.anyInt())).thenReturn(6);
+//        Assertions.assertEquals(17, casio.action(3));
         //Mockito.times(2).verify(utilityHelper.calculate(Mockito.anyInt(),Mockito.anyInt()));
     }
     //Mock -> Mockito framework

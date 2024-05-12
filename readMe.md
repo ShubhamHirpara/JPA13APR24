@@ -67,3 +67,6 @@ BDD - Behaviour Driven Development (5) (Cucumber: )
 Microservices:
 API Gateway : Route request, Load Balancing
 Discovery server, 
+
+Response Entity: 
+Exception Handling: Centrallized EH: 
