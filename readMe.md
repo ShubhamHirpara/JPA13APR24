@@ -70,3 +70,7 @@ Discovery server,
 
 Response Entity: 
 Exception Handling: Centrallized EH: 
+
+Spring AOP: Aspect oriented programming : BeforeAdvice, AfterAdvice, Around Advice
+to avoid cross cutting concerns // to avoind secondary logic
+PJP: Proceeding Join Point / PC: Point Cut

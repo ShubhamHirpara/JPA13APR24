@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,6 +27,7 @@ public class UserAPI {
 
     @GetMapping("/getById")
     public ResponseEntity<UserDTO> getUserById(@RequestParam Integer id){
+        System.out.println();
         UserDTO userById = userService.getUserById(id);
         userById = null;
         if(Objects.nonNull(userById)){
@@ -36,6 +35,7 @@ public class UserAPI {
                     .header("Content-Type","APPLICATION/JSON")
                     .body(userById);
         }
+        userById.getAccountInfo();
         return ResponseEntity.status(503).header("Error","Data not Found").build();
         //return userService.getUserById(id); // writing in Http response body
     }
@@ -77,5 +77,9 @@ public class UserAPI {
     public List<String> getFnameByLName(@PathVariable("ln") String lastName){
         return userService.getfNameBylName(lastName);
     }
+
+
+
+
 
 }
